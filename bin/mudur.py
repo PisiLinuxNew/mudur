@@ -419,8 +419,8 @@ class Plymouth:
 
     def __init__(self):
         """Plymouth constructor."""
-        self.client = "/bin/plymouth"
-        self.daemon = "/sbin/plymouthd"
+        self.client = "/usr/bin/plymouth"
+        self.daemon = "/usr/sbin/plymouthd"
         self.available = CONFIG.get("lxc_guest") != "yes" \
                 and os.path.exists(self.client)
         self.running = self.available and not run_quiet(self.client, "--ping")
