@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-# Pardus boot and initialization system
+# Pisilinux boot and initialization system
 # Copyright (C) 2006-2011 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it
@@ -11,7 +11,7 @@
 #
 
 """
-Pardus booting and initialization system written in Python.
+Pisi Linux booting and initialization system written in Python.
 """
 
 import os
@@ -419,8 +419,8 @@ class Plymouth:
 
     def __init__(self):
         """Plymouth constructor."""
-        self.client = "/bin/plymouth"
-        self.daemon = "/sbin/plymouthd"
+        self.client = "/usr/bin/plymouth"
+        self.daemon = "/usr/sbin/plymouthd"
         self.available = CONFIG.get("lxc_guest") != "yes" \
                 and os.path.exists(self.client)
         self.running = self.available and not run_quiet(self.client, "--ping")
@@ -494,7 +494,7 @@ class Ui:
         print self.UNICODE_MAGIC
         if os.path.exists("/etc/pisilinux-release"):
             release = load_file("/etc/pisilinux-release").rstrip("\n")
-            print "\x1b[1m  %s  \x1b[0;36mhttp://www.pisilinux.org\x1b[0m" \
+            print "\x1b[1m  %s  \x1b[0;36mhttps://pisilinux.org\x1b[0m" \
                     % release
         else:
             self.error(_("Cannot find /etc/pisilinux-release"))
